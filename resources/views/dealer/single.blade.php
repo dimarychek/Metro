@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="text-center">Metro Station</h1>
+    <h1 class="text-center">{{ $station }}</h1>
     <hr>
     <div class="row">
         <div class="col-lg-12">

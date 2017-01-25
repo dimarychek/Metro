@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use App\Metro;
 
 class DealerController extends Controller
 {
@@ -39,6 +40,8 @@ class DealerController extends Controller
             ->leftJoin('metro_station', 'metro_dealer.metro_station_id', '=', 'metro_station.id')
             ->get();
 
-        return view('dealer.single', ['dealers' => $dealers]);
+        $station = $dealers->first()->metro_station_name;
+
+        return view('dealer.single', ['dealers' => $dealers, 'station' => $station]);
     }
 }
